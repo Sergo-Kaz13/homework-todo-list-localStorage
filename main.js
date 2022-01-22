@@ -39,9 +39,10 @@ function showDate(userList) {
       const div = document.createElement('div');
       const dateText = document.createElement('span');
       dateText.textContent = element.item;
+
       const btnRemoveDate = document.createElement('button');
       btnRemoveDate.classList.add('remove');
-      btnRemoveDate.textContent = 'Remove';
+      btnRemoveDate.textContent = 'X';
 
       btnRemoveDate.addEventListener('click', b => {
         const removeDate = b.target.closest('div').firstChild.textContent;
