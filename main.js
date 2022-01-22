@@ -1,18 +1,64 @@
-'use strict'
+"use strict";
 
+let userDate = getDateLocalStorage();
 
-const {form} = document.forms;
+function getDateLocalStorage() {
+  return JSON.parse(localStorage.getItem("userDate")) || [];
+}
+showDate(userDate);
 
-form.addEventListener('submit', saveNote);
-
+const { form } = document.forms;
+form.addEventListener("submit", saveNote);
+// отримати дані з форми
 async function saveNote(e) {
   e.preventDefault();
-  let userDate = JSON.parse(localStorage.getItem('userDate')) || [];
 
   const formDate = new FormData(form);
   const values = Object.fromEntries(formDate.entries());
-  userDate.push(JSON.stringify(values));
+
+  if (values.item.trim().length) {
+    addsDateLocalStorage(values);
+    showDate(getDateLocalStorage());
+  }
+}
+function addsDateLocalStorage(date) {
+  let userDate = getDateLocalStorage();
+  userDate.push(date);
   localStorage.setItem('userDate', JSON.stringify(userDate));
 }
 
-console.log(JSON.parse(localStorage.getItem('userDate')));
+function showDate(userList) {
+  const userItemsList = document.querySelector('.user-items-list');
+
+  while (userItemsList.firstChild) {
+    userItemsList.removeChild(userItemsList.firstChild);
+  }
+
+  if (userList.length) {
+    userList.forEach(element => {
+      const div = document.createElement('div');
+      const dateText = document.createElement('span');
+      dateText.textContent = element.item;
+      const btnRemoveDate = document.createElement('button');
+      btnRemoveDate.classList.add('remove');
+      btnRemoveDate.textContent = 'Remove';
+
+      btnRemoveDate.addEventListener('click', b => {
+        const removeDate = b.target.closest('div').firstChild.textContent;
+        let userDate = JSON.parse(localStorage.getItem("userDate"));
+        let date = [];
+        userDate.forEach(item => {
+          if (removeDate !== item.item) {
+            date.push(item);
+          }
+        })
+        localStorage.setItem('userDate', JSON.stringify(date));
+        b.target.closest('div').remove();
+      })
+
+      div.append(dateText);
+      div.append(btnRemoveDate);
+      userItemsList.append(div);
+    });
+  }
+}
