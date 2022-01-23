@@ -9,7 +9,6 @@ showDate(userDate);
 
 const { form } = document.forms;
 form.addEventListener("submit", saveNote);
-// отримати дані з форми
 async function saveNote(e) {
   e.preventDefault();
 
@@ -20,6 +19,9 @@ async function saveNote(e) {
     addsDateLocalStorage(values);
     showDate(getDateLocalStorage());
   }
+
+  const input = document.querySelector('.text');
+  input.value = '';
 }
 function addsDateLocalStorage(date) {
   let userDate = getDateLocalStorage();
