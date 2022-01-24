@@ -1,0 +1,143 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  bottom: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html,
+body {
+  height: 100vh;
+  line-height: 1;
+  font-size: 14px;
+  color: #ffffff;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #143861;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #f3f3f3;
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #f3faf7;
+}
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  padding: 5px;
+  background: palevioletred;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  width: 310px;
+  height: 558px;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 10px 10px 5px;
+  box-shadow: 0 0 10px white;
+  margin: 0 auto;
+  background: rgb(64 67 68);
+}
+.user-items-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+.user-items-list div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(254, 255, 251);
+  padding-bottom: 10px;
+}
+.user-items-list span {
+  display: inline-block;
+  width: 85%;
+  padding-top: 8px;
+  word-wrap: break-word;
+}
+.remove {
+  color: rgb(252, 247, 247);
+  font-weight: 900;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+  border-radius: 50%;
+  border: none;
+  background: rgb(134, 196, 204);
+  box-shadow: 0 0 5px#eceef0;
+  transition: .28s;
+}
+.remove:active {
+  transform: scale(.95);
+  transform: translate(1px, -1px);
+  opacity: .5;
+}
+.myButton {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	padding:5px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+input {
+  padding: 5px;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: #CCCCCC;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-style: solid;
+  border-radius: 0px;
+  box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+  text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+  border-radius: 10px;
+}
+input:focus {
+  outline:none;
+}
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 5px;
+  align-self: flex-end;
+}
